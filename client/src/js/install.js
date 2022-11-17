@@ -33,4 +33,4 @@ butInstall.addEventListener('click', async () => {
 window.addEventListener('appinstalled', (event) => {
     console.log("App installed!");
     window.deferredPrompt = null;
-});
+});i
