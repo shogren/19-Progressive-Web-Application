@@ -4,7 +4,6 @@ const butInstall = document.getElementById('buttonInstall');
 window.addEventListener('beforeinstallprompt', (event) => {
     // prevent prompt from appearing on mobile
     event.preventDefault();
-    console.log('👍', 'beforeinstallprompt', event);
     // event to be triggered later
     window.deferredPrompt = event;
     // show install button
@@ -13,7 +12,6 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 // click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
-    console.log('👍', 'butInstall-clicked');
     const promptEvent = window.deferredPrompt;
     if (!promptEvent) {
       // deferred prompt not available
@@ -22,7 +20,6 @@ butInstall.addEventListener('click', async () => {
     // show  install prompt
     promptEvent.prompt();
     const result = await promptEvent.userChoice;
-    console.log('👍', 'userChoice', result);
     // reset deferred prompt
     window.deferredPrompt = null;
     // hide the install button
@@ -31,6 +28,5 @@ butInstall.addEventListener('click', async () => {
 
 // Handler for the `appinstalled` event
 window.addEventListener('appinstalled', (event) => {
-    console.log("App installed!");
     window.deferredPrompt = null;
 });i
